@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script src="https://cdn.socket.io/4.4.0/socket.io.min.js"></script>
+  <%-include('./partials/bootstrap.ejs')%> <%-include('./partials/header.ejs')%>
+  <body>
+    <%-include('./partials/nav2.ejs')%>
+    <script>
+      var username = "<%=title%>";
+    </script>
+    <div class="container">
+      <div class="col1">
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <div class="row1"><h2>server name</h2></div>
+              <div class="row2 scroll" id="chat-window">
+                <div>
+                  <div class="message__area" onLoad="pageScroll()"></div>
+                </div>
+              </div>
+              <div class="row3">
+                <input
+                  type="text"
+                  id="textarea"
+                  class="message"
+                  placeholder="write a message..."
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col2">
+        <div class="users">
+          <div class="card" id="users">
+            <div class="col">
+              <label style="margin-bottom: 10%">Users</label>
+              <br style="width: 2px" />
+              <%if(users.length>1){%> <%users.forEach(user=>{
+              if(user.username!=title) {%>
+              <div class="rows">
+                <a href="/chat/<%-user.username%>">
+                  <h3 class="username" name="Select_user">
+                    <%=user.username%>
+                  </h3></a
+                >
+              </div>
+              <%}})%> <%} else{%>
+              <p>No users in the server</p>
+              <%}%>
+              <script src="/client.js"></script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/client.js"></script>
+  </body>
+</html>

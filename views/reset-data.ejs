@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include('./partials/bootstrap.ejs')%> <%-include('./partials/header.ejs')%>
+  <body>
+    <%-include('./partials/nav.ejs')%>
+    <div class="create-user">
+        <form action="/resetdata/<%=user.username%>" method="POST">
+          <h4>Reset Your Data</h4>
+         <ul>
+          <li><label for="email">ENTER NEW EMAIL</label></li>
+          <input type="text" id="email" name="email" value="<%=user.email%>" required />
+          <li><label for="username">NEW USERNAME</label></li>
+          <input type="text" id="username" name="username" value="<%=user.username%>" required />
+          <li><label for="dob">DATE OF BIRTH</label></li>
+          <input type="date" id="dob" name="dob" value="<%=user.dob%>" required />
+          <li><label for="dob">Phone Number</label></li>
+          <input type="text" id="pno" name="pno" value="<%=user.pno%>" required />
+            <button>Reset</button>
+          </ul>
+        </form>
+  </body>
+</html>
