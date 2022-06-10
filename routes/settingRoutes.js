@@ -51,7 +51,7 @@ router.post("/resetdata/:username", async (req, res) => {
     User.username = res.username;
     res.render("index", {
       title: "Discord",
-      alrt: "Password Reset",
+      alrt: "Data Reset",
     });
   } else {
     res.render("index", { title: "Discord", alrt: "No such User" });
